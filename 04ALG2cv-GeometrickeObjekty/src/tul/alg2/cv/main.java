@@ -34,7 +34,7 @@ public class main {
         double allArea2 = 0;
         //metoda procházení going through using index
         for (int i = 0; i < shapes2.size(); i++) { // metoda size NE length
-//přetypovat na stejný DT Object + přes if rozlišit typ objektu            
+        //přetypovat na stejný DT Object + přes if rozlišit typ objektu            
             if (shapes2.get(i) instanceof Circle) {
                 allArea2 += ((Circle) shapes2.get(i)).computeArea();
             } else if (shapes2.get(i) instanceof Rectangle) {
