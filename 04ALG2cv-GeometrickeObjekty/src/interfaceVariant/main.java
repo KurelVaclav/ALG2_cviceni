@@ -1,4 +1,4 @@
-package tul.alg2.cv;
+package interfaceVariant;
 
 import java.util.ArrayList;
 
@@ -45,19 +45,18 @@ public class main {
         //dědičnost+polymorfismus - říká vytvoř novou třídu shape nad kruh a obdélník - vede na 3. variantu
         System.out.println("");
         System.out.println("3. varianta");
-        ArrayList<Shape> shapes3 = new ArrayList<>(); //dynamické pole objektů typu Shape
-        //může obsahovat cokoliv co je typově kompatibilní s Shape (to je co jsou potomkové Shapu: Circle+Rectangel)!!!!
-        //=>dát Circle,Rectanhle extends Shape; 
+        ArrayList<ShapeInterface> shapes3 = new ArrayList<>(); //dynamické pole objektů, které implementují ShapeInterface
+        //může obsahovat cokoliv co je typově kompatibilní s ShapeInterface (to je co jsou potomkové: Circle+Rectangele)!!!!
         //ukázka typové kompatibility 
-//        Shape s = new Rectangle(5, 6);
-//        Rectangle r = new Shape();
+//        ShapeInterface s = new Rectangle(5, 6);
+//        Rectangle r = new ShapeInterface(); //nejde ani přiřadit, ani vytvořit objekt
         //data
         shapes3.add(c1);
         shapes3.add(r1);
         shapes3.add(Circle.getInstanceR(2.6));
         double allArea3 = 0;
         //metoda for - each
-        for (Shape shape : shapes3) {
+        for (ShapeInterface shape : shapes3) {
             allArea3 += shape.computeArea(); //polymorfismus = až při běhu programu dle typu objektů se určuje co se použije za kod
             //computeArea() je mnohotvárná - dle okolností ukazuje na potřebný kód
             // tento = dynamický polymorfismus = vyhodnotí se metoda až při běhu programu VS
@@ -66,8 +65,6 @@ public class main {
         System.out.println("plocha 3 = " + allArea3);
 
         //doplnění testování z předka - dědění
-        System.out.println("Test protected z Shape - "+c1.jmeno);
-        System.out.println("test názvu jména - "+c1.getShapeName());
         System.out.println(c1);
         System.out.println(r1);
         

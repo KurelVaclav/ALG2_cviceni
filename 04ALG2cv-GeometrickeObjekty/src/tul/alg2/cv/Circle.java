@@ -4,9 +4,10 @@ package tul.alg2.cv;
  *
  * @author Václav Kurel
  */
-public class Circle extends Shape{ //Circle je typově kompatibilní s Shape => Circle IS A Shape
+public class Circle extends Shape { //Circle je typově kompatibilní s Shape => Circle IS A Shape
 //X Shape není kompatibilní se Circle - logicky jako FZ u databází 
     // data
+
     private double r; //poloměr
 
     //konstruktor - public změnit na private!!!
@@ -37,7 +38,9 @@ public class Circle extends Shape{ //Circle je typově kompatibilní s Shape => 
     //toString
     @Override
     public String toString() {
-        return "Circle{" + "r=" + r + '}';
+//        return "Circle{" + "r=" + r + '}';
+        //super. najde vše z předka
+        return super.toString() + String.format(" r = %.2f", r);
     }
 
     //metoda na výpočet obsahu, už ne static  - volám na objekt kruh

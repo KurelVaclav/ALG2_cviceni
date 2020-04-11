@@ -1,11 +1,10 @@
-package tul.alg2.cv;
+package interfaceVariant;
 
 /**
- * immutable - neměnný objekt
  *
  * @author Václav Kurel
  */
-public class Rectangle extends Shape { // Rectangle je typově kompatibilní s Shape, obráceně ne logicky
+public class Rectangle implements ShapeInterface { // Rectangle je typově kompatibilní s ShapeInterface
     //data
 
     private double a;
@@ -31,21 +30,18 @@ public class Rectangle extends Shape { // Rectangle je typově kompatibilní s S
         return area;
     }
 
-    //přepsat metodu v potomkovy
     @Override
-    public double computeArea() { //pouze vracím hodnotu
+    public double computeArea() {
         return area;
     }
 
-    //výpočet obsahu - nechceme 5x počítat obsah => do konstruktoru
     private double area() {
         return a * b;
     }
 
     @Override
     public String toString() {
-//        return "Rectangle{" + "a=" + a + ", b=" + b + '}';
-        return super.toString() + String.format(" a = %.2f, b = %.2f", a, b);
+        return "Rectangle{" + "a=" + a + ", b=" + b + '}';
     }
 
 }

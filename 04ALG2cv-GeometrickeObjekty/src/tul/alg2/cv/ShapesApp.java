@@ -39,6 +39,9 @@ public class ShapesApp {
                 case 5:
                     shapes.clear();
                     break;
+                case 6:
+                    sortByArea();
+                    break;
                 default:
                     System.out.println("neplatná volba!");
             }
@@ -155,6 +158,11 @@ public class ShapesApp {
             }
         }
         System.out.println("Tvar s největším obsahem je " + shapes.get(imax) + ", jeho obsah je " + shapes.get(imax).computeArea());
+    }
+
+    //TODO zobrazit objekty setříděné podle plochy volat collections.sort + zaručit typovou kompatibilitu - obsahovat compareTo()
+    private static void sortByArea() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
