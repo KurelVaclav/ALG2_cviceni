@@ -5,7 +5,7 @@ package tul.alg2.cv;
  * @author Václav Kurel
  *
  */
-public abstract class Shape { //předek; abstraktní mohu dávat metody které nemají tělo 
+public abstract class Shape implements Comparable<Shape> { //předek; abstraktní mohu dávat metody které nemají tělo 
     //data
 
     protected String jmeno = "Geometric object";
@@ -22,6 +22,16 @@ public abstract class Shape { //předek; abstraktní mohu dávat metody které n
     @Override
     public String toString() { //překrytí metody toString třídy Object, defaultná implementace, která může být překrytá
         return jmeno + ": " + getShapeName();
+    }
+
+    @Override
+    public int compareTo(Shape o) {
+        if (this.computeArea() > o.computeArea()) {
+            return -1;
+        } else if (this.computeArea() < o.computeArea()) {
+            return 1;
+        }
+        return 0;
     }
 
 }

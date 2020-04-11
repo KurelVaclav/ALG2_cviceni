@@ -1,6 +1,7 @@
 package tul.alg2.cv;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -9,9 +10,6 @@ import java.util.Scanner;
  */
 public class ShapesApp {
 
-    /**
-     * @param args the command line arguments
-     */
     public static Scanner sc = new Scanner(System.in);
     public static ArrayList<Shape> shapes = new ArrayList<>();
     //protected se týká dědíčnosti
@@ -31,16 +29,16 @@ public class ShapesApp {
                     System.out.println("Celkový obsah plochy: " + computeAllArea());
                     break;
                 case 3:
-                    printObjects();
+                    printObjects(shapes);
                     break;
                 case 4:
                     findMaxArea();
                     break;
                 case 5:
-                    shapes.clear();
+                    sortByArea();
                     break;
                 case 6:
-                    sortByArea();
+                    shapes.clear();
                     break;
                 default:
                     System.out.println("neplatná volba!");
@@ -57,13 +55,14 @@ public class ShapesApp {
         System.out.println("2 - výpočet celkového obsahu všech útvarů dohromady");
         System.out.println("3 - výčet všech zadaných objektů");
         System.out.println("4 - info o objektě s maximálním obsahem");
-        System.out.println("5 - zadání nové sady tvarů");
+        System.out.println("5 - seřadit všechny objekty dle obsahů (sestupně)");
+        System.out.println("6 - zadání nové sady tvarů");
         System.out.println("------------------------------------------------------");
     }
 
     private static int readChoice() {
         int answer = sc.nextInt();
-        if (answer < 0 || answer > 5) {
+        if (answer < 0 || answer > 6) {
             System.out.println("Neplatná volba!");
         }
         return answer;
@@ -141,7 +140,7 @@ public class ShapesApp {
         return area;
     }
 
-    private static void printObjects() {
+    private static void printObjects(ArrayList<Shape> array) {
         System.out.println("Zadali jste tyto tvary: ");
         for (Shape shape : shapes) {
             System.out.println(shape);
@@ -162,7 +161,9 @@ public class ShapesApp {
 
     //TODO zobrazit objekty setříděné podle plochy volat collections.sort + zaručit typovou kompatibilitu - obsahovat compareTo()
     private static void sortByArea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Shape> shapesSort = (ArrayList<Shape>) shapes.clone();
+        Collections.sort(shapesSort);
+        printObjects(shapesSort);
     }
 
 }
