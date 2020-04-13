@@ -9,7 +9,7 @@ public abstract class Shape implements Comparable<Shape> { //předek; abstraktn�
     //data
 
     protected String jmeno = "Geometric object";
-
+    
     //metody
     //zde dědičnost  - metoda public or protected - zdědí se do potomků :)
     //musím překrýt metodu u potomků @override

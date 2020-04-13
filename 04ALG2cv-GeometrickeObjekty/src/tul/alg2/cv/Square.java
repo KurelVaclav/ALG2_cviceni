@@ -15,7 +15,7 @@ public class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return "Square{" + "a=" + a + '}';
+        return jmeno + getShapeName() + String.format(" a = %.2f", a);
     }
 
 }
