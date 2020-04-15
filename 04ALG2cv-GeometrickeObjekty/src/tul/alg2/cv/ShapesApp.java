@@ -142,7 +142,7 @@ public class ShapesApp {
 
     private static void printObjects(ArrayList<Shape> array) {
         System.out.println("Zadali jste tyto tvary: ");
-        for (Shape shape : shapes) {
+        for (Shape shape : array) {
             System.out.println(shape + " , S = " + shape.computeArea());
         }
     }

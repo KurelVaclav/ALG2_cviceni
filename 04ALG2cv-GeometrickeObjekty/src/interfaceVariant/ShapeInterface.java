@@ -8,4 +8,5 @@ public interface ShapeInterface {
     
     public double computeArea(); //jen kontrakt
     
+    
 }
