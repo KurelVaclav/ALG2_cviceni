@@ -1,6 +1,5 @@
 package comparingStudents;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,8 +11,8 @@ import java.util.List;
 public class DataSource {
     
     private static Student[] data = {
-        new Student("alice", "Malá", 345),
-        new Student("Bob", "Velký", 123),
+        new Student("Alice", "Malá", 345),
+        new Student("Bob", "Velký", 123), //bylo tu 123, když dám 345 chci true
         new Student("Cyril", "Stredny", 567)
     };
 
