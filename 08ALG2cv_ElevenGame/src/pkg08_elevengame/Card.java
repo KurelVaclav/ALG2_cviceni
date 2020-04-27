@@ -14,6 +14,7 @@ public class Card {
     public Card(String symbol, String value) {
         this.symbol = symbol;
         this.value = value;
+        this.nPoints = valueToPoints(value);
     }
 
     public String getSymbol() {

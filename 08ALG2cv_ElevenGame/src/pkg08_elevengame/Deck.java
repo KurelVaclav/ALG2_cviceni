@@ -15,17 +15,12 @@ public class Deck {
     private List<Card> deckCards;
     private int nCards;
 
-    public Deck(List<Card> deckCards, int nCards) {
+    private Deck(List<Card> deckCards, int nCards) {
         this.deckCards = deckCards;
         this.nCards = nCards;
     }
 
     public Deck() {
-
-    }
-
-    public int getDeckSize() {
-        return deckCards.size();
     }
 
     public void shuffle() {
@@ -43,7 +38,7 @@ public class Deck {
 
     public static Deck packOnDeck() {
         String[] symbols = {"červená", "černá", "žalud", "kule"};
-        String[] values = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"};
+        String[] values = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         List<Card> deckCards = new ArrayList<>();
         for (String symbol : symbols) {
             for (String value : values) {

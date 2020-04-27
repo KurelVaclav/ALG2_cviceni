@@ -12,18 +12,18 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner sc = new Scanner(System.in);
-    public static Board board = new Board();
     //budeme dělat s rozhraním
     //public static BoardInterface board = new Board();
 
     public static void main(String[] args) {
+        Board board = Board.newBoard();
         while (board.isAnotherPlayPossible()) { //ještě jsou karty v balíčku, na stole a zároveň existuje JQK, sum11
             showBoard(board);
-            System.out.println("Vyber kartu: ");
+            System.out.println("Vyber karty: ");
             //načtu si celý řádek a pošlu to logice :) , split rozdělí na pole Stringů, musím říct co je oddělovač
             String[] selectedCardsPositions = sc.nextLine().split(" +"); //split také regulární výraz - výčet oddělovačů
             //"[a-z] jakékoliv písmeno, [a-z]+ .. jedno nebo více, " +" jedno nebo více mezer je oddělovač
-            while(!board.playAndReplace(selectedCardsPositions)){
+            while (!board.playAndReplace(selectedCardsPositions)) {
                 System.out.println("Nevalidní tah!");
                 selectedCardsPositions = sc.nextLine().split(" +");
             }
@@ -34,7 +34,7 @@ public class Main {
             System.out.println("Gratuluji, vyhrál jsi!");
         } else {
             showBoard(board);
-            System.out.println("Nelze hrát!");
+            System.out.println("Nelze hrát, neexistuje další tah!");
         }
     }
 

@@ -8,11 +8,11 @@ package pkg08_elevengame;
 public class Board implements BoardInterface {
 
     //data ve hře:
-    Card[] cards; //9 karet na stole
-    Deck deck; //balíček karet
+    private Card[] cards; //9 karet na stole
+    private Deck deck; //balíček karet
 
     //konstruktor
-    public Board(Card[] cards, Deck deck) {
+    private Board(Card[] cards, Deck deck) {
         this.cards = cards;
         this.deck = deck;
     }
@@ -27,7 +27,7 @@ public class Board implements BoardInterface {
 
     @Override
     public int getDeckSize() {
-        return deck.getDeckSize();
+        return deck.getnCards();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Board implements BoardInterface {
     public boolean playAndReplace(String[] selectedCardsPositions) {
         int nPoints = 0;
         int sel[] = new int[selectedCardsPositions.length];
-        for (int i = 0; i < sel.length; i++) {
+        for (int i = 0; i < selectedCardsPositions.length; i++) {
             sel[i] = Integer.parseInt(selectedCardsPositions[i]) - 1;
         }
         if (checkSelectedCardsPositions(sel)) {
@@ -57,7 +57,7 @@ public class Board implements BoardInterface {
         } else {
             return false;
         }
-        if ((nPoints == 1 && sel.length == 2) || (nPoints == 0 && sel.length == 3)) {
+        if ((nPoints == 11 && sel.length == 2) || (nPoints == 0 && sel.length == 3)) {
             for (int i : sel) {
                 cards[i] = deck.dealCard();
             }
