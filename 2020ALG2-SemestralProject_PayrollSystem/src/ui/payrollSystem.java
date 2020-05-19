@@ -3,6 +3,7 @@ package ui;
 import java.util.Scanner;
 import app.PayrollEditor;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import utils.PayrollInterface;
 
 /**
@@ -18,7 +19,7 @@ public class payrollSystem {
      * @param args the command line arguments
      * @throws java.io.FileNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         pay = new PayrollEditor();
         System.out.println("Zadejte název souboru se zaměstnanci: ");
         String employeeFile = sc.next();
@@ -28,6 +29,9 @@ public class payrollSystem {
         String wagesFile = sc.next();
         pay.loadHours(wagesFile);
         System.out.println(pay.getWagesInfo());
+        System.out.println("Zadejte název výstupního souboru: ");
+        String resultFile = sc.next();
+        pay.saveWages(resultFile);
     }
 
 }
