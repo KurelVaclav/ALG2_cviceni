@@ -1,16 +1,11 @@
 package app;
 
-import java.io.BufferedReader;
 import utils.PayrollInterface;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,68 +14,54 @@ import java.util.logging.Logger;
 public class PayrollEditor implements PayrollInterface {
 
     ArrayList<Employee> employees = new ArrayList<>();
+    ArrayList<Wage> wages = new ArrayList<>();
 
+    /**
+     *
+     * @param employeeFile
+     * @throws java.io.FileNotFoundException
+     */
     @Override
-    public String parseAndMakeInfo(String[] employeeInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getEmpoyeeInfo(int ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Tax calculate() {
-        return null;
-    }
-
-    @Override
-    public void load(String employeeFile, String wagesFile) {
+    public void loadEmployees(String employeeFile) throws FileNotFoundException {
         File eFile = new File(employeeFile);
-        try {
-            Scanner inData = new Scanner(eFile);
+        try (Scanner inData = new Scanner(eFile)) {
             int id, day, month, year, hourTax;
             String firstName, lastName, placeOfBirth, positionName;
             while (inData.hasNext()) {
-                try {
-                    id = inData.nextInt();
-                    firstName = inData.next();
-                    lastName = inData.next();
-                    day = inData.nextInt();
-                    month = inData.nextInt();
-                    year = inData.nextInt();
-                    placeOfBirth = inData.next();
-                    hourTax = inData.nextInt();
-                    positionName = inData.next();
-                    Tax tax = new Tax(hourTax, positionName);
-                    Employee e = new Employee(id, firstName, lastName, year, month, day, placeOfBirth, tax);
-                    employees.add(e);
-                } catch (Exception e) {
-                    throw new RuntimeException("Nepodařilo se naparsovat!");
-                }
+                id = inData.nextInt();
+                firstName = inData.next();
+                lastName = inData.next();
+                day = inData.nextInt();
+                month = inData.nextInt();
+                year = inData.nextInt();
+                placeOfBirth = inData.next();
+                hourTax = inData.nextInt();
+                positionName = inData.next();
+                Tax tax = new Tax(hourTax, positionName);
+                Employee e = new Employee(id, firstName, lastName, year, month, day, placeOfBirth, tax);
+                employees.add(e);
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("Soubor nebyl nalezen!");
         }
+    }
 
+    @Override
+    public void loadHours(String wagesFile) throws FileNotFoundException {
         File wFile = new File(wagesFile);
-        try {
-            BufferedReader hourData = new BufferedReader(new FileReader(wFile));
-            String line;
-            try {
-                while ((line = hourData.readLine()) != null) {
-                    String[] parts = line.split("[ ]+");
-                    Employee e = findEmployee(Integer.parseInt(parts[0]));
-                    
-                }
-            } catch (Exception ex) {
-                throw new RuntimeException("Nepodařilo se naparsovat!");
+        try (Scanner inData = new Scanner(wFile)) {
+            int id, hours;
+            while (inData.hasNext()) {
+                id = inData.nextInt();
+                Employee e = findEmployee(id);
+                hours = inData.nextInt();
+                Wage w = new Wage(e, hours);
+                w.setGrossWage(hours, e);
+                w.setSuperGrossWage();
+                w.setDownPayment();
+                w.setSHInsurancePayment();
+                w.setNetWage();
+                wages.add(w);
             }
-        } catch (FileNotFoundException ex) {
-            throw new RuntimeException("Soubor nebyl nalezen!");
         }
-
     }
 
     @Override
@@ -99,7 +80,17 @@ public class PayrollEditor implements PayrollInterface {
                 return employee;
             }
         }
-        throw new NoSuchElementException("Takový zaměstnanec nepracoval!");
+        throw new NoSuchElementException("Takový zaměstnanec s ID: " + id + " nepracoval!");
+    }
+
+    @Override
+    public String getWagesInfo() {
+        StringBuilder sb = new StringBuilder("");
+        sb.append(String.format("%-5s%-20s%-20s%-12s%-6s%-8s%-20s%-10s%-10s%-10s%-10s%-10s%-10s%n", "ID", "jméno", "příjmění", "narození", "země", "Kč/hod", "pozice", "hodiny", "HM","SHM","ZnD","OSZ","CM"));
+        for (Wage wage : wages) {
+            sb.append(wage).append("\n");
+        }
+        return sb.toString();
     }
 
 }

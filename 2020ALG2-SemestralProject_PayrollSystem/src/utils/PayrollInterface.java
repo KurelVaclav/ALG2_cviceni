@@ -1,21 +1,19 @@
 package utils;
 
-import app.Tax;
+import java.io.FileNotFoundException;
 
 /**
  *
  * @author Václav Kurel
  */
 public interface PayrollInterface {
-    
-    public String parseAndMakeInfo(String[] employeeInfo);
 
-    public String getEmpoyeeInfo(int ID);
+    public void loadEmployees(String employeeFile) throws FileNotFoundException;
 
-    public Tax calculate();
-
-    public void load(String employeeFile, String wagesFile);
+    public void loadHours(String wagesFile) throws FileNotFoundException;
 
     public String getEmployeesInfo();
+
+    public String getWagesInfo();
 
 }

@@ -38,7 +38,11 @@ public class Employee implements Comparable<Employee> {
     public int getId() {
         return id;
     }
-    
+
+    public Tax getTax() {
+        return tax;
+    }
+
     public String getEmployeeToString() {
         return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, dateOfBirth.toString(), placeOfBirth);
     }
@@ -48,15 +52,15 @@ public class Employee implements Comparable<Employee> {
         return getEmployeeToString() + tax.getTaxesToString();
     }
 
-
     @Override
     public int compareTo(Employee o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static void main(String[] args) {
-        Tax vaclav = new Tax(250, "IT-spravce");
-        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21,"CZ",vaclav);
-        System.out.println(e);
-    }
+//    public static void main(String[] args) {
+//        Tax vaclav = new Tax(250, "IT-spravce");
+//        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21, "CZ", vaclav);
+//        System.out.println(e);
+//    }
+
 }
