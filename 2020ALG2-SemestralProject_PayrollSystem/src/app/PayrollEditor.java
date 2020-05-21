@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.util.Scanner;
  * @author Václav Kurel
  */
 public class PayrollEditor implements PayrollInterface {
-    
+
     ArrayList<Employee> employees = new ArrayList<>();
     ArrayList<Wage> wages = new ArrayList<>();
 
@@ -46,7 +47,7 @@ public class PayrollEditor implements PayrollInterface {
             }
         }
     }
-    
+
     @Override
     public void loadHours(String wagesFile) throws FileNotFoundException {
         File wFile = new File(wagesFile);
@@ -66,7 +67,7 @@ public class PayrollEditor implements PayrollInterface {
             }
         }
     }
-    
+
     @Override
     public String getEmployeesInfo() {
         StringBuilder sb = new StringBuilder("");
@@ -76,8 +77,9 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-    
-    private Employee findEmployee(int id) {
+
+    @Override
+    public Employee findEmployee(int id) {
         for (Employee employee : employees) {
             if (employee.getId() == id) {
                 return employee;
@@ -85,7 +87,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         throw new NoSuchElementException("Takový zaměstnanec s ID: " + id + " nepracoval!");
     }
-    
+
     @Override
     public String getWagesInfo() {
         StringBuilder sb = new StringBuilder("");
@@ -95,12 +97,23 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-    
+
     @Override
     public void saveWages(String resultFile) throws IOException {
+        Collections.sort(employees);
         Writer w;
         w = new TextWriter();
         w.saveResults(resultFile, wages);
     }
-    
+
+    @Override
+    public void addEmployeeToList(Employee e) {
+        employees.add(e);
+    }
+
+    @Override
+    public void addWageToList(Wage wage) {
+        wages.add(wage);
+    }
+
 }

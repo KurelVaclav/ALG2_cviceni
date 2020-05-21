@@ -3,11 +3,13 @@ package app;
 import java.time.LocalDate;
 
 /**
- *
+ * třída reprezentující mzdy
+ * data: zaměstnance, hrubá mzda, super hrubí mzda, záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
  * @author Václav Kurel
  */
 public class Wage {
 
+    //data
     // private LocalDate day;
     private Employee employee;
     private int hours;
@@ -50,6 +52,7 @@ public class Wage {
         double contributions = grossWage * ODV_ZAM;
         this.superGrossWage = grossWage + contributions;
     }
+    
 
     public void setDownPayment() {
         double taxAdvance = DAN_VYP * superGrossWage;

@@ -1,11 +1,13 @@
 package app;
 
 /**
- *
+ * třída reprezentující pracovní pozici zaměstnance
+ * data: hourTax = hodinová sazba, název pozice
  * @author Václav Kurel
  */
 public class Tax {
 
+    //data
     private double hourTax;
     private String positionName;
 

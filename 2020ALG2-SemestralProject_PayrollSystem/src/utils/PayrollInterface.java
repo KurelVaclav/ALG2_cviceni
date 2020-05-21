@@ -1,5 +1,7 @@
 package utils;
 
+import app.Employee;
+import app.Wage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -16,7 +18,13 @@ public interface PayrollInterface {
     public String getEmployeesInfo();
 
     public String getWagesInfo();
+    
+    public Employee findEmployee(int id);
 
-    public void saveWages(String resultFile)throws IOException;
+    public void saveWages(String resultFile) throws IOException;
+
+    public void addEmployeeToList(Employee e);
+    
+    public void addWageToList(Wage wage);
 
 }

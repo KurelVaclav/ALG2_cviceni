@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *
+ * Abstraktní třída zapisovač
  * @author Václav Kurel
  */
 public abstract class Writer {

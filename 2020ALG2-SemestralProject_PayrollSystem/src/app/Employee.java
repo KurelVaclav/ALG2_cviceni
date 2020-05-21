@@ -3,16 +3,19 @@ package app;
 import java.time.LocalDate;
 
 /**
- *
+ * Třída reprezentující zaměstnance
+ * data: id = identifikační číslo, jméno, příjmení, datum narození, národnost, taxa - jaká pozice mu byla přidělena
+ * 
  * @author Václav Kurel
  */
 public class Employee implements Comparable<Employee> {
 
+    //data
     private int id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
-    private String placeOfBirth;
+    private String nationality;
     private Tax tax;
 
     /**
@@ -23,15 +26,15 @@ public class Employee implements Comparable<Employee> {
      * @param year
      * @param month
      * @param day
-     * @param placeOfBirth
+     * @param nationality
      * @param tax
      */
-    public Employee(int id, String firstName, String lastName, int year, int month, int day, String placeOfBirth, Tax tax) {
+    public Employee(int id, String firstName, String lastName, int year, int month, int day, String nationality, Tax tax) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = java.time.LocalDate.of(year, month, day);
-        this.placeOfBirth = placeOfBirth;
+        this.nationality = nationality;
         this.tax = tax;
     }
 
@@ -44,7 +47,7 @@ public class Employee implements Comparable<Employee> {
     }
 
     public String getEmployeeToString() {
-        return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, dateOfBirth.toString(), placeOfBirth);
+        return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, dateOfBirth.toString(), nationality);
     }
 
     @Override
@@ -54,7 +57,7 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.id - o.id;
     }
 
 //    public static void main(String[] args) {
@@ -62,5 +65,4 @@ public class Employee implements Comparable<Employee> {
 //        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21, "CZ", vaclav);
 //        System.out.println(e);
 //    }
-
 }
