@@ -18,13 +18,17 @@ public interface PayrollInterface {
     public String getEmployeesInfo();
 
     public String getWagesInfo();
-    
+
     public Employee findEmployee(int id);
 
     public void saveWages(String resultFile) throws IOException;
 
     public void addEmployeeToList(Employee e);
-    
+
     public void addWageToList(Wage wage);
+
+    public void saveAddedEmployees(String employeeFile) throws IOException;
+
+    public void saveAddedHours(String wagesFile) throws IOException;
 
 }

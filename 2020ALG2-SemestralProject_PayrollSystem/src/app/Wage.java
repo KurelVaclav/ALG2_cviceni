@@ -3,8 +3,9 @@ package app;
 import java.time.LocalDate;
 
 /**
- * třída reprezentující mzdy
- * data: zaměstnance, hrubá mzda, super hrubí mzda, záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
+ * třída reprezentující mzdy data: zaměstnance, hrubá mzda, super hrubí mzda,
+ * záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
+ *
  * @author Václav Kurel
  */
 public class Wage {
@@ -52,7 +53,6 @@ public class Wage {
         double contributions = grossWage * ODV_ZAM;
         this.superGrossWage = grossWage + contributions;
     }
-    
 
     public void setDownPayment() {
         double taxAdvance = DAN_VYP * superGrossWage;
@@ -84,6 +84,10 @@ public class Wage {
 
     private String wageToString() {
         return String.format("%-10d%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f", hours, grossWage, superGrossWage, downPayment, shInsurancePayment, netWage);
+    }
+
+    public String toHourString() {
+        return employee.toString() + String.format("%-10d", hours);
     }
 
 }

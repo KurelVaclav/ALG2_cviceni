@@ -1,3 +1,6 @@
-1 Vaclav Kurel 21 05 1997 CZ 250 IT-spravce
-2 Tomas Novak  05 06 1990 CZ 150 mistr
-3 Jan Jon      25 11 1989 UK 100 delnik
+ID   jméno               příjmění            narození    země  Kč/hod  pozice              
+1    Vaclav              Kurel               1997-05-21  CZ    250,00  IT-spravce          
+2    Tomas               Novak               1990-06-05  CZ    150,00  mistr               
+3    Jan                 Jon                 1989-11-25  UK    100,00  delnik              
+4    Tom                 Maly                1980-11-05  EN    140,00  uklizec             
+6    Petr                Sova                1975-06-03  US    300,00  vedouci-obchodu     

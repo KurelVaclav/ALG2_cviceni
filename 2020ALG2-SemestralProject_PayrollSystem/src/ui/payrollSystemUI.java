@@ -35,20 +35,16 @@ public class payrollSystemUI {
                     isEnd = true;
                     break;
                 case 1:
-                    loadEmployee(pay);
+                    loadEmployee();
                     break;
                 case 2:
-                    loadHours(pay);
+                    loadHours();
                     break;
                 case 3:
-                    Employee e = addEmployee();
-                    pay.addEmployeeToList(e);
-                    System.out.println(pay.getEmployeesInfo());
+                    addEmployeeMenu();
                     break;
                 case 4:
-                    Wage wage = addWage();
-                    pay.addWageToList(wage);
-                    System.out.println(pay.getWagesInfo());
+
                     break;
                 case 5:
                     System.out.println("Zadejte název výstupního souboru: ");
@@ -75,14 +71,14 @@ public class payrollSystemUI {
         System.out.println("****************************");
     }
 
-    public static void loadEmployee(PayrollInterface pay) throws FileNotFoundException {
+    public static void loadEmployee() throws FileNotFoundException {
         System.out.println("Zadejte název souboru se zaměstnanci: ");
         String employeeFile = sc.next();
         pay.loadEmployees(employeeFile);
         System.out.println(pay.getEmployeesInfo());
     }
 
-    public static void loadHours(PayrollInterface pay) throws FileNotFoundException {
+    public static void loadHours() throws FileNotFoundException {
         System.out.println("Zadejte název souboru hodinových mezd: ");
         String wagesFile = sc.next();
         pay.loadHours(wagesFile);
@@ -112,6 +108,28 @@ public class payrollSystemUI {
         return new Employee(id, firstName, lastName, year, month, day, nationality, tax);
     }
 
+    public static void addEmployeeMenu() throws IOException {
+        System.out.println("Zadání nových zaměstnanců: ");
+        boolean isEnd = false;
+        while (!isEnd) {
+            Employee e = addEmployee();
+            pay.addEmployeeToList(e);
+            System.out.println("Přídat dalšího zaměstnance? a/n");
+            String choice = sc.next();
+            if (choice.toLowerCase().charAt(0) == 'n') {
+                isEnd = true;
+            }
+        }
+        System.out.println(pay.getEmployeesInfo());
+        System.out.println("Přejete si nové data uložit? a/n");
+        String choice = sc.next();
+        if (choice.toLowerCase().charAt(0) == 'a') {
+            System.out.println("Zadejte název souboru se zaměstnanci: ");
+            String employeeFile = sc.next();
+            pay.saveAddedEmployees(employeeFile);
+        }
+    }
+
     public static Wage addWage() {
         System.out.println("Zadejte ID: ");
         int id = sc.nextInt();
@@ -119,13 +137,35 @@ public class payrollSystemUI {
         int hours = sc.nextInt();
         Employee e = pay.findEmployee(id);
         Wage wage = new Wage(e, hours);
-        wage.setGrossWage(hours, e);
-        wage.setSuperGrossWage();
-        wage.setDownPayment();
-        wage.setSHInsurancePayment();
-        wage.setSHInsurancePayment();
-        wage.setNetWage();
+//        wage.setGrossWage(hours, e);
+//        wage.setSuperGrossWage();
+//        wage.setDownPayment();
+//        wage.setSHInsurancePayment();
+//        wage.setSHInsurancePayment();
+//        wage.setNetWage();
         return wage;
+    }
+
+    public void addHoursMenu() throws IOException {
+        System.out.println("Zadání nové pracovní hodiny: ");
+        boolean isEnd = false;
+        while (!isEnd) {
+            Wage wage = addWage();
+            pay.addWageToList(wage);
+            System.out.println("Přídat dalšího odpracované hodiny? a/n");
+            String choice = sc.next();
+            if (choice.toLowerCase().charAt(0) == 'n') {
+                isEnd = true;
+            }
+        }
+        System.out.println(pay.getWagesInfo());
+        System.out.println("Přejete si nové data uložit? a/n");
+        String choice = sc.next();
+        if (choice.toLowerCase().charAt(0) == 'a') {
+            System.out.println("Zadejte název souboru s odpracovanými hodiny: ");
+            String wagesFile = sc.next();
+            pay.saveAddedHours(wagesFile);
+        }
     }
 
 }
