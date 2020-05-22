@@ -1,11 +1,10 @@
 package competition.filehandling;
 
 import competition.app.Runner;
-import competition.filehandling.Writer;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -21,7 +20,9 @@ public class TextWriter extends Writer {
         //if neexistuje soubor, tak PW ho vytvoří, když existuje tak do něj zapíše
         //FileWriter si bere i rovnou String
         //když dám tru, tak to nepřepisuje //zavřít printWriter
-        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(resultFilePath, true)))) {
+        //ošetření pro adresář data
+        File resultFile = new File(dataDirectory, resultFilePath);
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(resultFile, true)))) {
 //            PrintWriter pw = new PrintWriter(new OutputStreamWriter(Syste.out, "Cp1250"),true);//nastavení kodování
             pw.println("Nové výsledky: ");
             int n = 1; //pořadí běžců

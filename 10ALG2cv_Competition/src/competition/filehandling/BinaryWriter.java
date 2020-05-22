@@ -1,7 +1,6 @@
 package competition.filehandling;
 
 import competition.app.Runner;
-import competition.filehandling.Writer;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +19,8 @@ public class BinaryWriter extends Writer {
     // v binární souboru nejsou oddělovací znaky a všechno je jeden za druhým -> předdefinovat počet bytů
     @Override
     public void saveResults(String resultFilePath, List<Runner> runners) throws IOException {
-        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(resultFilePath))) {
+        File resultFile = new File(dataDirectory, resultFilePath);
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(resultFile))) {
             dos.writeUTF("Nové výsledky");
             int n = 1;
             for (Runner runner : runners) {
@@ -39,8 +39,8 @@ public class BinaryWriter extends Writer {
     }
 
     public void createStart(String startFilePath) throws FileNotFoundException, IOException {
-        File binaryFile = new File(startFilePath);
-        File textFile = new File(startFilePath.replace(".dat", ".txt"));
+        File binaryFile = new File(dataDirectory,startFilePath);
+        File textFile = new File(dataDirectory,startFilePath.replace(".dat", ".txt"));
         try (Scanner out = new Scanner(textFile)) {
             try (DataOutputStream in = new DataOutputStream(new FileOutputStream(binaryFile))) {
                 while (out.hasNext()) {
@@ -56,8 +56,8 @@ public class BinaryWriter extends Writer {
     }
 
     public void createFinish(String finishFilePath) throws FileNotFoundException, IOException {
-        File binaryFile = new File(finishFilePath);
-        File textFile = new File(finishFilePath.replace(".dat", ".txt"));
+        File binaryFile = new File(dataDirectory,finishFilePath);
+        File textFile = new File(dataDirectory,finishFilePath.replace(".dat", ".txt"));
         try (Scanner out = new Scanner(textFile)) {
             try (DataOutputStream in = new DataOutputStream(new FileOutputStream(binaryFile))) {
                 while (out.hasNext()) {

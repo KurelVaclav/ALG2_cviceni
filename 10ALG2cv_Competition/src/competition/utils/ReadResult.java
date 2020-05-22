@@ -1,8 +1,10 @@
 package competition.utils;
 
 import competition.app.Runner;
+import competition.filehandling.Writer;
 import java.io.DataInputStream;
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,7 +28,8 @@ public class ReadResult {
     }
 
     public static void readResult(String resutFilePath) throws FileNotFoundException, IOException {
-        try (DataInputStream dis = new DataInputStream(new FileInputStream(resutFilePath))) {
+        File resultFile = new File(Writer.dataDirectory,resutFilePath);
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(resultFile))) {
             System.out.println(dis.readUTF());
             boolean isEnd = false;
             while (!isEnd) {

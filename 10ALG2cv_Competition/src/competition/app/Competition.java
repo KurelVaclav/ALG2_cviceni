@@ -136,7 +136,7 @@ public class Competition {
     }
 
     private void loadStartText(String startFilePath) throws FileNotFoundException {
-        File startFile = new File(startFilePath);
+        File startFile = new File(Writer.dataDirectory,startFilePath);
         try (Scanner in = new Scanner(startFile)) {
             while (in.hasNext()) {
                 int number = in.nextInt();
@@ -158,7 +158,8 @@ public class Competition {
         BinaryWriter bw = new BinaryWriter();
         startFilePath = Character.toUpperCase(startFilePath.charAt(0)) + startFilePath.substring(1);
         bw.createStart(startFilePath);
-        try (DataInputStream dis = new DataInputStream(new FileInputStream(startFilePath))) {
+        File startFile = new File(Writer.dataDirectory,startFilePath);
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(startFile))) {
             boolean isEnd = false;
             while (!isEnd) {
                 try {
@@ -182,7 +183,7 @@ public class Competition {
     }
 
     private void loadFinishText(String finishFilePath) throws FileNotFoundException, IOException {
-        File finishFile = new File(finishFilePath);
+        File finishFile = new File(Writer.dataDirectory,finishFilePath);
         try (BufferedReader in = new BufferedReader(new FileReader(finishFile))) {
             String line;
             while ((line = in.readLine()) != null) {
@@ -197,7 +198,8 @@ public class Competition {
         BinaryWriter bw = new BinaryWriter();
         finishFilePath = Character.toUpperCase(finishFilePath.charAt(0)) + finishFilePath.substring(1);
         bw.createFinish(finishFilePath);
-        try (DataInputStream dis = new DataInputStream(new FileInputStream(finishFilePath))) {
+        File finishFile = new File(Writer.dataDirectory,finishFilePath);
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(finishFile))) {
             boolean isEnd = false;
             while (!isEnd) {
                 try {

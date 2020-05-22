@@ -1,7 +1,6 @@
 package competition.ui;
 
 import competition.app.Competition;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;

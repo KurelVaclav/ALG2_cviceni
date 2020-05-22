@@ -6,6 +6,7 @@
 package competition.filehandling;
 
 import competition.app.Runner;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,6 +15,9 @@ import java.util.List;
  * @author Václav Kurel
  */
 public abstract class Writer {
+
+    //cesta k adresáři data, FIle.separator - zjistí lomítko dle OS
+    public static File dataDirectory = new File(System.getProperty("user.dir") + File.separator + "data");
 
     public abstract void saveResults(String resultFilePath, List<Runner> runners) throws IOException;
 }
