@@ -16,7 +16,7 @@ import java.util.Scanner;
  * @author Václav Kurel
  */
 public class PayrollEditor implements PayrollInterface {
-
+    
     ArrayList<Employee> employees = new ArrayList<>();
     ArrayList<Wage> wages = new ArrayList<>();
 
@@ -45,9 +45,10 @@ public class PayrollEditor implements PayrollInterface {
             }
         }
     }
-
+    
     @Override
     public String getEmployeesInfo() {
+        Collections.sort(employees);
         StringBuilder sb = new StringBuilder("");
         sb.append(String.format("%-5s%-20s%-20s%-12s%-6s%-8s%-20s%n", "ID", "jméno", "příjmění", "narození", "země", "Kč/hod", "pozice"));
         for (Employee employee : employees) {
@@ -55,7 +56,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     @Override
     public String getEmployeesInfoSortedByID() {
         Collections.sort(employees);
@@ -66,7 +67,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     public String getEmployeesInfoSortedByLastName() {
         Collections.sort(employees, Employee.lastNameComparator);
         StringBuilder sb = new StringBuilder("");
@@ -76,7 +77,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     public String getEmployeesInfoSortedByFirstName() {
         Collections.sort(employees, Employee.firstNameComparator);
         StringBuilder sb = new StringBuilder("");
@@ -86,7 +87,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     @Override
     public Employee findEmployee(int id) {
         for (Employee employee : employees) {
@@ -96,19 +97,19 @@ public class PayrollEditor implements PayrollInterface {
         }
         throw new NoSuchElementException("Takový zaměstnanec s ID: " + id + " není evidován!");
     }
-
+    
     @Override
     public void addEmployeeToList(Employee e) {
         employees.add(e);
     }
-
+    
     @Override
     public void saveAddedEmployees(String employeeFile) throws IOException {
         Writer w;
         w = new TextWriter();
         w.saveUpdateEmployees(employeeFile, employees);
     }
-
+    
     @Override
     public void loadHours(String wagesFile) throws FileNotFoundException {
         File wFile = new File(Writer.dataDirectory, wagesFile);
@@ -123,9 +124,10 @@ public class PayrollEditor implements PayrollInterface {
             }
         }
     }
-
+    
     @Override
     public String getHoursInfo() {
+        Collections.sort(wages, Wage.idComparator);
         StringBuilder sb = new StringBuilder("");
         sb.append(String.format("%-5s%-20s%-20s%-12s%-6s%-8s%-20s%-10s%n", "ID", "jméno", "příjmění", "narození", "země", "Kč/hod", "pozice", "hodiny"));
         for (Wage wage : wages) {
@@ -133,7 +135,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     @Override
     public void calculateWages() {
         for (Wage wage : wages) {
@@ -146,9 +148,10 @@ public class PayrollEditor implements PayrollInterface {
             wage.setNetWage();
         }
     }
-
+    
     @Override
     public String getWagesInfo() {
+        Collections.sort(wages, Wage.idComparator);
         StringBuilder sb = new StringBuilder("");
         sb.append(String.format("%-5s%-20s%-20s%-12s%-6s%-8s%-20s%-10s%-10s%-10s%-10s%-10s%-10s%n", "ID", "jméno", "příjmění", "narození", "země", "Kč/hod", "pozice", "hodiny", "HM", "SHM", "ZnD", "OSZ", "CM"));
         for (Wage wage : wages) {
@@ -156,7 +159,7 @@ public class PayrollEditor implements PayrollInterface {
         }
         return sb.toString();
     }
-
+    
     @Override
     public void saveWages(String resultFile) throws IOException {
         Collections.sort(employees);
@@ -164,17 +167,17 @@ public class PayrollEditor implements PayrollInterface {
         w = new TextWriter();
         w.saveResults(resultFile, wages);
     }
-
+    
     @Override
     public void addWageToList(Wage wage) {
         wages.add(wage);
     }
-
+    
     @Override
     public void saveAddedHours(String wagesFile) throws IOException {
         Writer w;
         w = new TextWriter();
         w.saveUpdateHours(wagesFile, wages);
     }
-
+    
 }

@@ -58,7 +58,7 @@ public class payrollSystemUI {
     public static void menu() {
         System.out.println("**********************************");
         System.out.println("PayrollSystem");
-        System.out.println("Vyberte možnost(musí být celé kladné číslo: ");
+        System.out.println("Vyberte možnost: ");
         System.out.println("1 - správa seznamu zaměstnanců");
         System.out.println("2 - mzdový portál");
         System.out.println("0 - ukončení programu");
@@ -243,6 +243,8 @@ public class payrollSystemUI {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Soubor nebyl nalezen");
+        }catch(NoSuchElementException e){
+            System.out.println("Nepodařilo se nalézt ID zaměstnance");
         }
     }
 

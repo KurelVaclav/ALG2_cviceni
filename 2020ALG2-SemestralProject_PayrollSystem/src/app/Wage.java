@@ -1,5 +1,7 @@
 package app;
 
+import java.util.Comparator;
+
 /**
  * třída reprezentující mzdy data: zaměstnance, hrubá mzda, super hrubí mzda,
  * záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
@@ -99,5 +101,18 @@ public class Wage {
     public String toIDHourString() {
         return employee.getId() + " " + String.format("%-10d", hours);
     }
+
+    public static Comparator<Wage> idComparator = new Comparator<Wage>() {
+        @Override
+        public int compare(Wage o1, Wage o2) {
+            if (o1.getEmployee().getId() > o2.getEmployee().getId()) {
+                return 1;
+            } else if (o1.getEmployee().getId() == o2.getEmployee().getId()) {
+                return 0;
+            } else {
+                return -1;
+            }
+        }
+    };
 
 }
