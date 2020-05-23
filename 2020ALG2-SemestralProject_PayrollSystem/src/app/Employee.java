@@ -1,11 +1,13 @@
 package app;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 /**
- * Třída reprezentující zaměstnance
- * data: id = identifikační číslo, jméno, příjmení, datum narození, národnost, taxa - jaká pozice mu byla přidělena
- * 
+ * Třída reprezentující zaměstnance data: id = identifikační číslo, jméno,
+ * příjmení, datum narození, národnost, taxa - jaká pozice mu byla přidělena
+ *
  * @author Václav Kurel
  */
 public class Employee implements Comparable<Employee> {
@@ -29,7 +31,7 @@ public class Employee implements Comparable<Employee> {
      * @param nationality
      * @param tax
      */
-    public Employee(int id, String firstName, String lastName, int year, int month, int day, String nationality, Tax tax) {
+    public Employee(int id, String firstName, String lastName, int day, int month, int year, String nationality, Tax tax) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,8 +48,17 @@ public class Employee implements Comparable<Employee> {
         return tax;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public String getEmployeeToString() {
-        return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, dateOfBirth.toString(), nationality);
+        String formattedDateOfBirth = dateOfBirth.format(DateTimeFormatter.ofPattern("dd MM yyyy"));
+        return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, formattedDateOfBirth, nationality);
     }
 
     @Override
@@ -65,4 +76,17 @@ public class Employee implements Comparable<Employee> {
 //        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21, "CZ", vaclav);
 //        System.out.println(e);
 //    }
+    public static Comparator<Employee> lastNameComparator = new Comparator<Employee>() {
+        @Override
+        public int compare(Employee o1, Employee o2) {
+            return (int) (o1.getLastName().compareTo(o2.getLastName()));
+        }
+    };
+
+    public static Comparator<Employee> firstNameComparator = new Comparator<Employee>() {
+        @Override
+        public int compare(Employee o1, Employee o2) {
+            return (int) (o1.getFirstName().compareTo(o2.getFirstName()));
+        }
+    };
 }

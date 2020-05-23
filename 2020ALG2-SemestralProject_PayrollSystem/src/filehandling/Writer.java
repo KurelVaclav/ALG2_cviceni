@@ -2,6 +2,7 @@ package filehandling;
 
 import app.Employee;
 import app.Wage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import java.util.List;
  * @author Václav Kurel
  */
 public abstract class Writer {
+    
+    public static File dataDirectory = new File(System.getProperty("user.dir") + File.separator + "data");
 
     public abstract void saveResults(String resultFile, List<Wage> wages) throws IOException;
 

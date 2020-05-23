@@ -31,4 +31,14 @@ public interface PayrollInterface {
 
     public void saveAddedHours(String wagesFile) throws IOException;
 
+    public String getHoursInfo();
+
+    public void calculateWages();
+
+    public String getEmployeesInfoSortedByID();
+
+    public String getEmployeesInfoSortedByLastName();
+
+    public String getEmployeesInfoSortedByFirstName();
+
 }

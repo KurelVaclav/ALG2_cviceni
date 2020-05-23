@@ -1,7 +1,5 @@
 package app;
 
-import java.time.LocalDate;
-
 /**
  * třída reprezentující mzdy data: zaměstnance, hrubá mzda, super hrubí mzda,
  * záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
@@ -35,6 +33,14 @@ public class Wage {
         Tax tax = e.getTax();
         double t = tax.getHourTax();
         this.grossWage = hours * t;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public int getHours() {
+        return hours;
     }
 
     public double getGrossWage() {
@@ -87,7 +93,11 @@ public class Wage {
     }
 
     public String toHourString() {
-        return employee.toString() + String.format("%-10d", hours);
+        return employee.toString() + " " + String.format("%-10d", hours);
+    }
+
+    public String toIDHourString() {
+        return employee.getId() + " " + String.format("%-10d", hours);
     }
 
 }
