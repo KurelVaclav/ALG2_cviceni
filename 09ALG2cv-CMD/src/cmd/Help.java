@@ -13,6 +13,7 @@ public class Help extends Command {
         //\n nový řádek; %- zarovná vlevo
         String help = "HELP\n"
                 + String.format("%-40s %s\n", "help", "Display help")
+                + String.format("%-40s %s\n", "dirWithSubdir","Display tree of current folder")
                 + String.format("%-40s %s\n", "dir", "Display list of files and folders")
                 + String.format("%-40s %s\n", "dir [-o]", "Display orded list of files and folders")
                 + String.format("%-40s %s\n", "dir [-e] [file extension]", "Display list of files and folders with specified extension")
