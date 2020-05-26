@@ -49,12 +49,20 @@ public class Wage {
         return grossWage;
     }
 
+    public double getSuperGrossWage() {
+        return superGrossWage;
+    }
+
     public double getDownPayment() {
         return downPayment;
     }
 
     public double getShInsurancePayment() {
         return shInsurancePayment;
+    }
+
+    public double getNetWage() {
+        return netWage;
     }
 
     public void setSuperGrossWage() {

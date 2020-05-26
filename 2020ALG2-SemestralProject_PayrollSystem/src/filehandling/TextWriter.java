@@ -28,7 +28,6 @@ public class TextWriter extends Writer {
         }
     }
 
-    @Override
     public void saveUpdateEmployees(String employeesFile, List<Employee> employees) throws IOException {
         File emplF = new File(dataDirectory,employeesFile);
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(emplF)))) {
@@ -38,7 +37,6 @@ public class TextWriter extends Writer {
         }
     }
 
-    @Override
     public void saveUpdateHours(String wagesFile, List<Wage> wages) throws IOException {
         File wF = new File(dataDirectory,wagesFile);
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(wF)))) {

@@ -37,3 +37,37 @@ ID   jméno               příjmění            narození    země  Kč/hod  p
 4    Sam                 Kam                 16 11 1993  EN    270,00  vedouci-marketing   400       108000,00 144720,00 19638,00  11880,00  76482,00  
 5    Lukas               Huk                 04 08 1978  CZ    200,00  ucetni              200       40000,00  53600,00  5970,00   4400,00   29630,00  
 20   Petr                Pan                 03 03 1986  US    100,00  uklizec             400       40000,00  53600,00  5970,00   4400,00   29630,00  
+Mzda ze dne: 2020-05-24
+ID   jméno               příjmění            narození    země  Kč/hod  pozice              hodiny    HM        SHM       ZnD       OSZ       CM        
+1    Vaclav              Kurel               21 05 1997  CZ    250,00  IT-spravce          120       30000,00  40200,00  3960,00   3300,00   22740,00  
+2    Tomas               Novak               05 06 1990  CZ    150,00  mistr               60        9000,00   12060,00  0,00      990,00    8010,00   
+3    Jan                 Jon                 25 11 1980  UK    100,00  delnik              200       20000,00  26800,00  1950,00   2200,00   15850,00  
+4    Sam                 Kam                 16 11 1993  EN    270,00  vedouci-marketing   400       108000,00 144720,00 19638,00  11880,00  76482,00  
+5    Lukas               Huk                 04 08 1978  CZ    200,00  ucetni              200       40000,00  53600,00  5970,00   4400,00   29630,00  
+6    Pavel               Chudy               01 01 1992  CZ    200,00  dispecer            30        6000,00   8040,00   0,00      660,00    5340,00   
+7    Alzbeta             Dvorakova           28 06 1991  CZ    250,00  mzdova-ucetni       160       40000,00  53600,00  5970,00   4400,00   29630,00  
+20   Petr                Pan                 03 03 1986  US    100,00  uklizec             400       40000,00  53600,00  5970,00   4400,00   29630,00  
+Mzda ze dne: 2020-05-24
+ID   jméno               příjmění            narození    země  Kč/hod  pozice              hodiny    HM        SHM       ZnD       OSZ       CM        
+1    Vaclav              Kurel               21 05 1997  CZ    250,00  IT-spravce          120       30000,00  40200,00  3960,00   3300,00   22740,00  
+2    Tomas               Novak               05 06 1990  CZ    150,00  mistr               60        9000,00   12060,00  0,00      990,00    8010,00   
+3    Jan                 Jon                 25 11 1980  UK    100,00  delnik              200       20000,00  26800,00  1950,00   2200,00   15850,00  
+4    Sam                 Kam                 16 11 1993  EN    270,00  vedouci-marketing   400       108000,00 144720,00 19638,00  11880,00  76482,00  
+5    Lukas               Huk                 04 08 1978  CZ    200,00  ucetni              200       40000,00  53600,00  5970,00   4400,00   29630,00  
+6    Pavel               Chudy               01 01 1992  CZ    200,00  dispecer            30        6000,00   8040,00   0,00      660,00    5340,00   
+7    Alzbeta             Dvorakova           28 06 1991  CZ    250,00  mzdova-ucetni       160       40000,00  53600,00  5970,00   4400,00   29630,00  
+8    Viktor              Viking              05 06 1987  UK    100,00  delnik              180       18000,00  24120,00  1548,00   1980,00   14472,00  
+20   Petr                Pan                 03 03 1986  US    100,00  uklizec             400       40000,00  53600,00  5970,00   4400,00   29630,00  
+Mzda ze dne: 2020-05-26
+ID   jméno               příjmění            narození    země  Kč/hod  pozice              hodiny    HM        SHM       ZnD       OSZ       CM        
+1    Vaclav              Kurel               21 05 1997  CZ    250,00  IT-spravce          120       30000,00  40200,00  3960,00   3300,00   22740,00  
+2    Tomas               Novak               05 06 1990  CZ    150,00  mistr               60        9000,00   12060,00  0,00      990,00    8010,00   
+3    Jan                 Jon                 25 11 1980  UK    100,00  delnik              200       20000,00  26800,00  1950,00   2200,00   15850,00  
+4    Sam                 Kam                 16 11 1993  EN    270,00  vedouci-marketing   400       108000,00 144720,00 19638,00  11880,00  76482,00  
+5    Lukas               Huk                 04 08 1978  CZ    200,00  ucetni              200       40000,00  53600,00  5970,00   4400,00   29630,00  
+6    Pavel               Chudy               01 01 1992  CZ    200,00  dispecer            30        6000,00   8040,00   0,00      660,00    5340,00   
+7    Alzbeta             Dvorakova           28 06 1991  CZ    250,00  mzdova-ucetni       160       40000,00  53600,00  5970,00   4400,00   29630,00  
+8    Viktor              Viking              05 06 1987  UK    100,00  delnik              180       18000,00  24120,00  1548,00   1980,00   14472,00  
+9    Josef               Fifan               02 02 1977  SK    150,00  delnik_mistr        200       30000,00  40200,00  3960,00   3300,00   22740,00  
+10   Vit                 Rom                 06 02 1975  CZ    100,00  kuchar              180       18000,00  24120,00  1548,00   1980,00   14472,00  
+20   Petr                Pan                 03 03 1986  US    100,00  uklizec             400       40000,00  53600,00  5970,00   4400,00   29630,00  

@@ -11,9 +11,9 @@ import java.io.IOException;
  */
 public interface PayrollInterface {
 
-    public void loadEmployees(String employeeFile) throws FileNotFoundException;
+    public void loadEmployees(String employeeFile) throws FileNotFoundException, IOException;
 
-    public void loadHours(String wagesFile) throws FileNotFoundException;
+    public void loadHours(String wagesFile) throws FileNotFoundException, IOException;
 
     public String getEmployeesInfo();
 
@@ -22,6 +22,8 @@ public interface PayrollInterface {
     public Employee findEmployee(int id);
 
     public void saveWages(String resultFile) throws IOException;
+
+    public void saveResultToExcel(String resultFile) throws IOException;
 
     public void addEmployeeToList(Employee e);
 

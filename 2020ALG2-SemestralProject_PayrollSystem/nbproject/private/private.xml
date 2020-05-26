@@ -5,13 +5,15 @@
         <group>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/filehandling/TextWriter.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/app/Tax.java</file>
+            <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/filehandling/ExcelWiter.java</file>
+            <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/filehandling/BinaryWriter.java</file>
+            <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/ui/Tester.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/app/Employee.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/ui/payrollSystemUI.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/utils/PayrollInterface.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/app/PayrollEditor.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/filehandling/Writer.java</file>
             <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/app/Wage.java</file>
-            <file>file:/C:/Users/MP/Documents/NetBeansProjects/2020ALG2-SemestralProject_PayrollSystem/src/utils/IllegalInputFromUser.java</file>
         </group>
     </open-files>
 </project-private>

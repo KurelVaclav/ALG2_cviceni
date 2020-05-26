@@ -2,5 +2,10 @@
 2    Tomas               Novak               05 06 1990  CZ    150,00  mistr               
 3    Jan                 Jon                 25 11 1980  UK    100,00  delnik              
 4    Sam                 Kam                 16 11 1993  EN    270,00  vedouci-marketing   
-20   Petr                Pan                 03 03 1986  US    100,00  uklizec             
 5    Lukas               Huk                 04 08 1978  CZ    200,00  ucetni              
+6    Pavel               Chudy               01 01 1992  CZ    200,00  dispecer            
+7    Alzbeta             Dvorakova           28 06 1991  CZ    250,00  mzdova-ucetni       
+8    Viktor              Viking              05 06 1987  UK    100,00  delnik              
+9    Josef               Fifan               02 02 1977  SK    150,00  delnik_mistr        
+10   Vit                 Rom                 06 02 1975  CZ    100,00  kuchar              
+20   Petr                Pan                 03 03 1986  US    100,00  uklizec             

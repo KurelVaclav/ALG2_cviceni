@@ -56,6 +56,25 @@ public class Employee implements Comparable<Employee> {
         return lastName;
     }
 
+    public int getDayDateOfBirth() {
+        int dd = dateOfBirth.getDayOfMonth();
+        return dd;
+    }
+
+    public int getMonthDateOfBirth() {
+        int mm = dateOfBirth.getMonthValue();
+        return mm;
+    }
+
+    public int getYearDateOfBirth() {
+        int yyyy = dateOfBirth.getYear();
+        return yyyy;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
     public String getEmployeeToString() {
         String formattedDateOfBirth = dateOfBirth.format(DateTimeFormatter.ofPattern("dd MM yyyy"));
         return String.format("%-5d%-20s%-20s%-12s%-6s", id, firstName, lastName, formattedDateOfBirth, nationality);
