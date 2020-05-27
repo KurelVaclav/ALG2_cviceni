@@ -1,6 +1,5 @@
 package filehandling;
 
-import app.Employee;
 import app.Wage;
 import java.io.File;
 import java.io.IOException;
@@ -12,14 +11,18 @@ import java.util.List;
  * @author Václav Kurel
  */
 public abstract class Writer {
-    
+
+    /**
+     * Metoda pro nalezení cesty k souborům v adresáři data
+     */
     public static File dataDirectory = new File(System.getProperty("user.dir") + File.separator + "data");
 
+    /**
+     * Metoda pro uložení výsledků vypočtené mzdy
+     * @param resultFile - název výsledného souboru
+     * @param wages - list s mzdami zaměstnanců
+     * @throws IOException
+     */
     public abstract void saveResults(String resultFile, List<Wage> wages) throws IOException;
-
-//    public abstract void saveUpdateEmployees(String employeesFile, List<Employee> employees) throws IOException;
-//
-//    public abstract void saveUpdateHours(String wagesFile, List<Wage> wages) throws IOException;
-    
     
 }

@@ -13,7 +13,8 @@ import utils.IllegalInputFromUser;
 import utils.PayrollInterface;
 
 /**
- * UI
+ * Tato třída reprezentuje UI programu, komunikuje s uživatelem a vypisuje na
+ * obrazovku
  *
  * @author Václav Kurel
  */
@@ -23,6 +24,8 @@ public class payrollSystemUI {
     public static PayrollInterface pay;
 
     /**
+     * třída main pro spuštění celého programu
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -54,6 +57,9 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda, která vypíše hlavní menu na obrazovku
+     */
     public static void menu() {
         System.out.println("************************************************************");
         System.out.println("PayrollSystem");
@@ -64,6 +70,9 @@ public class payrollSystemUI {
         System.out.println("************************************************************");
     }
 
+    /**
+     * Statická metoda, která vypíše menu pro správu zaměstnanců
+     */
     public static void employeeMenu() {
         System.out.println("Správa seznamu zaměstnanců: ");
         try {
@@ -107,6 +116,12 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro načtení souboru se zaměstnanci
+     *
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static void loadEmployee() throws FileNotFoundException, IOException {
         System.out.println("Zadejte název souboru se zaměstnanci: ");
         String employeeFile = sc.next();
@@ -115,8 +130,9 @@ public class payrollSystemUI {
     }
 
     /**
+     * Statická metoda pro přidání zaměstnance do seznamu zaměstnanců
      *
-     * @return
+     * @return new Employee pokud se podaří naparsovat, jinak null
      */
     public static Employee addEmployee() {
         Employee e;
@@ -157,6 +173,10 @@ public class payrollSystemUI {
         return null;
     }
 
+    /**
+     * Statická metoda pro přidání zaměstnanců a uložení nových dat do souboru
+     * se zaměstnanci
+     */
     public static void addEmployeeMenu() {
         System.out.println("Zadání nových zaměstnanců: ");
         boolean isEnd = false;
@@ -186,6 +206,10 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro výpis seznamu zaměstnanců, lze seřadit dle volby
+     * uživatele
+     */
     public static void listOfEmployeesMenu() {
         System.out.println("Seřadit dle (vyberte možnost): ");
         System.out.println("1 - ID");
@@ -216,6 +240,9 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro vyhledání zamětnanců dle ID
+     */
     public static void searchEmployeeIDMenu() {
         boolean search = false;
         String answer;
@@ -240,6 +267,9 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro zadání odpracovaných hodin a výpočet mzdy
+     */
     public static void wageMenu() {
         System.out.println("Mzdový portál: ");
         try {
@@ -283,6 +313,11 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro načtení souboru s odpracovanými hodinami
+     *
+     * @throws FileNotFoundException
+     */
     public static void loadHours() throws FileNotFoundException {
         System.out.println("Zadejte název souboru hodinových mezd: ");
         String wagesFile = sc.next();
@@ -294,6 +329,11 @@ public class payrollSystemUI {
         System.out.println(pay.getHoursInfo());
     }
 
+    /**
+     * Statická metoda pro přidání odpracovaných hodin zaměstnanci
+     *
+     * @return new Wage pokud se podaří naparsovat, jinak null
+     */
     public static Wage addHours() {
         System.out.println("Zadejte ID: ");
         String idAnswer = sc.next();
@@ -306,11 +346,14 @@ public class payrollSystemUI {
             Wage wage = new Wage(e, hours);
             return wage;
         } catch (NumberFormatException ex) {
-            System.out.println("id, hodiny musí být číslo");
+            System.out.println("Nepodařilo se naparsovat,id, hodiny musí být číslo");
         }
         return null;
     }
 
+    /**
+     * Statická metoda pro menu přidání odpracovaných hodin a jejich uožení
+     */
     public static void addHoursMenu() {
         System.out.println("Zadání nové pracovní hodiny zaměstnanci: ");
         boolean isEnd = false;
@@ -335,6 +378,9 @@ public class payrollSystemUI {
         }
     }
 
+    /**
+     * Statická metoda pro výpočet mzdy a uložení nových výsledků
+     */
     public static void calculateWage() {
         pay.calculateWages();
         System.out.println(pay.getWagesInfo());

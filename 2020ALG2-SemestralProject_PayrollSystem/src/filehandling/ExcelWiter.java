@@ -12,11 +12,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- *
+ * Třída Excel zapisovač
+ * využívá externí knižnici POI apache
  * @author Václav Kurel
  */
 public class ExcelWiter extends Writer {
-    
+
     @Override
     public void saveResults(String resultFile, List<Wage> wages) throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -34,7 +35,11 @@ public class ExcelWiter extends Writer {
             workbook.close();
         }
     }
-    
+
+    /**
+     * Metoda pro vytvoření hlavičky dat
+     * @param sheet 
+     */
     private void createHeaderRow(Sheet sheet) {
         CellStyle cs = sheet.getWorkbook().createCellStyle();
         Row r = sheet.createRow(0);
@@ -84,7 +89,12 @@ public class ExcelWiter extends Writer {
         cellNet.setCellStyle(cs);
         cellNet.setCellValue("CM");
     }
-    
+
+    /**
+     * Metda pro zápis do buněk excelu
+     * @param wage
+     * @param row 
+     */
     private void writeBook(Wage wage, Row row) {
         Cell cell = row.createCell(1);
         cell.setCellValue(wage.getEmployee().getId());
@@ -117,5 +127,5 @@ public class ExcelWiter extends Writer {
         cell = row.createCell(15);
         cell.setCellValue(wage.getNetWage());
     }
-    
+
 }

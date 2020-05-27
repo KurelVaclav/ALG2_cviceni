@@ -22,14 +22,14 @@ public class Employee implements Comparable<Employee> {
 
     /**
      *
-     * @param id
-     * @param firstName
-     * @param lastName
-     * @param year
-     * @param month
-     * @param day
-     * @param nationality
-     * @param tax
+     * @param id - id zaměstnance
+     * @param firstName - jméno zaměstnance
+     * @param lastName - přijmení zaměstnance
+     * @param day - int den narození
+     * @param month - int měsíc narození
+     * @param year - int rok narození
+     * @param nationality - národnost
+     * @param tax - hodinová taxa zaměstnance dle pozice
      */
     public Employee(int id, String firstName, String lastName, int day, int month, int year, String nationality, Tax tax) {
         this.id = id;
@@ -90,11 +90,9 @@ public class Employee implements Comparable<Employee> {
         return this.id - o.id;
     }
 
-//    public static void main(String[] args) {
-//        Tax vaclav = new Tax(250, "IT-spravce");
-//        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21, "CZ", vaclav);
-//        System.out.println(e);
-//    }
+    /**
+     * Metoda pro seřazení dle příjmení zaměstnance
+     */
     public static Comparator<Employee> lastNameComparator = new Comparator<Employee>() {
         @Override
         public int compare(Employee o1, Employee o2) {
@@ -102,10 +100,19 @@ public class Employee implements Comparable<Employee> {
         }
     };
 
+    /**
+     * Metoda pro seřazení dle jména zaměstnance
+     */
     public static Comparator<Employee> firstNameComparator = new Comparator<Employee>() {
         @Override
         public int compare(Employee o1, Employee o2) {
             return (int) (o1.getFirstName().compareTo(o2.getFirstName()));
         }
     };
+    
+//    public static void main(String[] args) {
+//        Tax vaclav = new Tax(250, "IT-spravce");
+//        Employee e = new Employee(1, "Václav", "Kurel", 1997, 05, 21, "CZ", vaclav);
+//        System.out.println(e);
+//    }
 }

@@ -1,8 +1,8 @@
 package app;
 
 /**
- * třída reprezentující pracovní pozici zaměstnance data: hourTax = hodinová
- * sazba, název pozice
+ * Třída reprezentující pracovní pozici zaměstnance a jeho taxu ve firmě 
+ * data: hourTax = hodinová sazba, název pozice
  *
  * @author Václav Kurel
  */

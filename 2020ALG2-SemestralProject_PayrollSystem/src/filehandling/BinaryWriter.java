@@ -41,6 +41,14 @@ public class BinaryWriter extends Writer {
         }
     }
 
+    /**
+     * Metoda pro vytvoření souboru se zaměstnanci z dat na txt soubor a jeho
+     * načtení
+     *
+     * @param employeeFile
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void createEmployees(String employeeFile) throws FileNotFoundException, IOException {
         File binaryFile = new File(dataDirectory, employeeFile);
         File textFile = new File(dataDirectory, employeeFile.replace(".dat", ".txt"));
@@ -61,6 +69,14 @@ public class BinaryWriter extends Writer {
         }
     }
 
+    /**
+     * Metoda pro vytvoření souboru s odpracovanými hodinami z dat na txt soubor
+     * a jeho načtení
+     *
+     * @param hoursFile
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void createHours(String hoursFile) throws FileNotFoundException, IOException {
         File binaryFile = new File(dataDirectory, hoursFile);
         File textFile = new File(dataDirectory, hoursFile.replace(".dat", ".txt"));

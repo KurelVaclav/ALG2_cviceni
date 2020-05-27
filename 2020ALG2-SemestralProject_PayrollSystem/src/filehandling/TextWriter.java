@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- *
+ * Třidá textový zapisovač, potomek zapisovače
  * @author Václav Kurel
  */
 public class TextWriter extends Writer {
@@ -28,6 +28,12 @@ public class TextWriter extends Writer {
         }
     }
 
+    /**
+     * Metoda pro uložení nově přidaných zaměstnanců
+     * @param employeesFile
+     * @param employees
+     * @throws IOException
+     */
     public void saveUpdateEmployees(String employeesFile, List<Employee> employees) throws IOException {
         File emplF = new File(dataDirectory,employeesFile);
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(emplF)))) {
@@ -37,6 +43,12 @@ public class TextWriter extends Writer {
         }
     }
 
+    /**
+     * Metoda pro uložení nově přidaných odpracovaných hodin
+     * @param wagesFile
+     * @param wages
+     * @throws IOException
+     */
     public void saveUpdateHours(String wagesFile, List<Wage> wages) throws IOException {
         File wF = new File(dataDirectory,wagesFile);
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(wF)))) {

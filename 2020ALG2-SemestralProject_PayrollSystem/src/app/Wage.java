@@ -3,19 +3,19 @@ package app;
 import java.util.Comparator;
 
 /**
- * třída reprezentující mzdy data: zaměstnance, hrubá mzda, super hrubí mzda,
- * záloha na daň, odvody na sociální a zdravotní pojištění, čistá mzda
+ * Třída reprezentující vypočtenou mzdu změstnanci data: zaměstnance, hrubá
+ * mzda, super hrubí mzda, záloha na daň, odvody na sociální a zdravotní
+ * pojištění, čistá mzda
  *
  * @author Václav Kurel
  */
 public class Wage {
 
     //data
-    // private LocalDate day;
     private Employee employee;
     private int hours;
     private double grossWage; //hrubá mzda
-    private double superGrossWage;
+    private double superGrossWage; // super hrubá mzda
     private double downPayment; //záloha na daň
     private double shInsurancePayment; // odvody na sociální a zdravodní pojištění
     private double netWage; //čistá mzda
@@ -98,18 +98,36 @@ public class Wage {
         return employee.toString() + wageToString();
     }
 
+    /**
+     * Metoda pro výpis odpracovaných hodin a k tomu výpočet mzdy
+     *
+     * @return String
+     */
     private String wageToString() {
         return String.format("%-10d%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f", hours, grossWage, superGrossWage, downPayment, shInsurancePayment, netWage);
     }
 
+    /**
+     * Metoda pro výpis zaměstnance a jeho odpracované hodiny
+     *
+     * @return String zaměstnanec odpracované hodiny
+     */
     public String toHourString() {
         return employee.toString() + " " + String.format("%-10d", hours);
     }
 
+    /**
+     * Metoda pro výpis ID a odpracovaný hodiny zaměstnance
+     *
+     * @return String ID odpracované hodiny
+     */
     public String toIDHourString() {
         return employee.getId() + " " + String.format("%-10d", hours);
     }
 
+    /**
+     * Metoda pro seřazení dle id zaměstnanců
+     */
     public static Comparator<Wage> idComparator = new Comparator<Wage>() {
         @Override
         public int compare(Wage o1, Wage o2) {
