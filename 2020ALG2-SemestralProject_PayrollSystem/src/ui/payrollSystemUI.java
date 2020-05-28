@@ -8,6 +8,8 @@ import app.Wage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.NoSuchElementException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import utils.IllegalInputFromUser;
 import utils.PayrollInterface;
@@ -18,7 +20,7 @@ import utils.PayrollInterface;
  *
  * @author Václav Kurel
  */
-public class payrollSystemUI {
+public class PayrollSystemUI {
 
     public static Scanner sc = new Scanner(System.in);
     public static PayrollInterface pay;
@@ -306,10 +308,10 @@ public class payrollSystemUI {
                     System.out.println("Nevalidní vstup");
                 }
             }
-        } catch (FileNotFoundException ex) {
-            System.out.println("Soubor nebyl nalezen");
         } catch (NoSuchElementException e) {
             System.out.println("Nepodařilo se nalézt ID zaměstnance");
+        } catch (IOException ex) {
+            System.out.println("Nepodařilo se naparsovat");
         }
     }
 
@@ -318,14 +320,14 @@ public class payrollSystemUI {
      *
      * @throws FileNotFoundException
      */
-    public static void loadHours() throws FileNotFoundException {
+    public static void loadHours() throws FileNotFoundException, IOException {
         System.out.println("Zadejte název souboru hodinových mezd: ");
         String wagesFile = sc.next();
-        try {
-            pay.loadHours(wagesFile);
-        } catch (IOException ex) {
-            System.out.println("Nepodařilo se naparsovat");
-        }
+//        try {
+        pay.loadHours(wagesFile);
+//        } catch (IOException ex) {
+//            System.out.println("Nepodařilo se naparsovat");
+//        }
         System.out.println(pay.getHoursInfo());
     }
 
@@ -393,6 +395,8 @@ public class payrollSystemUI {
                 pay.saveWages(resultFile);
             } catch (IOException ex) {
                 System.out.println("Soubor se nepodařilo uložit");
+            } catch(IllegalArgumentException iea){
+                System.out.println("Nepodporovaná koncový formát souboru");
             }
         }
     }

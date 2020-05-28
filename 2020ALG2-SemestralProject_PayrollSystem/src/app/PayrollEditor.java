@@ -297,6 +297,19 @@ public class PayrollEditor implements PayrollInterface {
     }
 
     /**
+     * Metoda pro uložení dat o odpracovaných hodinách
+     *
+     * @param wagesFile - soubor s odpracovanými hodinami
+     * @throws IOException
+     */
+    @Override
+    public void saveAddedHours(String wagesFile) throws IOException {
+        TextWriter w;
+        w = new TextWriter();
+        w.saveUpdateHours(wagesFile, wages);
+    }
+
+    /**
      * Metoda pro výpočet mezd
      */
     @Override
@@ -335,7 +348,7 @@ public class PayrollEditor implements PayrollInterface {
      * @throws IOException
      */
     @Override
-    public void saveWages(String resultFile) throws IOException {
+    public void saveWages(String resultFile) throws IOException, IllegalArgumentException {
         Collections.sort(employees);
         Writer w;
         if (resultFile.endsWith(".txt")) {
@@ -361,19 +374,6 @@ public class PayrollEditor implements PayrollInterface {
         if (wage != null) {
             wages.add(wage);
         }
-    }
-
-    /**
-     * Metoda pro uložení dat o odpracovaných hodinách
-     *
-     * @param wagesFile - soubor s odpracovanými hodinami
-     * @throws IOException
-     */
-    @Override
-    public void saveAddedHours(String wagesFile) throws IOException {
-        TextWriter w;
-        w = new TextWriter();
-        w.saveUpdateHours(wagesFile, wages);
     }
 
     /**
